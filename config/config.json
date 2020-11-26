@@ -1,0 +1,19 @@
+{
+  "url": "http://localhost",
+  "api_version": "/v1",
+  "mongodb": "mongodb://localhost:32771/shuz",
+  "port": 8080,
+  "environments" : {
+    "test": {
+      "mongodb": "mongodb://localhost:32771/testing",
+      "port": 8081
+    },
+    "travis": {
+      "mongodb": "mongodb://127.0.0.1:27017/testing"
+    }
+  },
+
+  
+  "client_id": "a7e0a05ca23c1d3edf21",
+  "client_secret": "4eb6cbec323a7c03d804b5fd59f179429d8d1db2"
+}
