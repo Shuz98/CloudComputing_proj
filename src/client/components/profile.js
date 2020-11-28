@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { GravHash } from './header';
-import { GameList } from './game-list';
 import {
   ErrorMessage,
   InfoBlock,
@@ -121,11 +120,6 @@ export const Profile = props => {
       <ProfileBase>
         <ErrorMessage msg={state.error} hide={true} />
         <ProfileBlock {...state} />
-        <GameList
-          toCreateGame={isUser}
-          games={state.games}
-          username={state.username}
-        />
       </ProfileBase>
     </Fragment>
   );

@@ -2,7 +2,7 @@
 "use strict";
 
 const Joi = require("@hapi/joi");
-const { filterGameForProfile } = require("../../solitaire");
+//const { filterGameForProfile } = require("../../solitaire");
 const { validPassword } = require("../../../shared");
 
 module.exports = app => {
@@ -109,14 +109,14 @@ module.exports = app => {
     else {
       // Filter games data for only profile related info
      // console.log(user.games[user.games.length - 1]);
-      const filteredGames = user.games.map(game => filterGameForProfile(game));
+      //const filteredGames = user.games.map(game => filterGameForProfile(game));
       res.status(200).send({
         username: user.username,
         primary_email: user.primary_email,
         first_name: user.first_name,
         last_name: user.last_name,
         city: user.city,
-        games: filteredGames
+        games: [],
       });
     }
   });

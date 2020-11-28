@@ -12,9 +12,6 @@ import { Login } from './components/login';
 import { Logout } from './components/logout';
 import { Register } from './components/register';
 import { Profile } from './components/profile';
-import { Start } from './components/start';
-import { Results } from './components/results';
-import { Game } from './components/game';
 
 const defaultUser = {
   username: '',
@@ -123,17 +120,6 @@ const MyApp = () => {
         <Route
           path="/profile/:username"
           render={p => <Profile {...p} currentUser={state.username} />}
-        />
-        <Route
-          path="/start"
-          render={p => {
-            return loggedIn() ? <Start {...p} /> : <Redirect to={'/login'} />;
-          }}
-        />
-        <Route path="/game/:id" render={p => <Game {...p} user={p.user} />} />
-        <Route
-          path="/results/:id"
-          render={p => <Results {...p} user={p.user} />}
         />
       </GridBase>
     </BrowserRouter>
