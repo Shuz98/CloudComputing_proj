@@ -1,4 +1,3 @@
-/* Copyright G. Hemingway, @2020 - All rights reserved */
 'use strict';
 
 import React, { Fragment } from 'react';
@@ -40,10 +39,10 @@ const HeaderLeft = ({ user }) => {
     <HeaderLeftBase>
       {user !== '' ? (
         <Link to={`/profile/${user}`}>
-          <h2>GrahamCard</h2>
+          <h2>Sandbox</h2>
         </Link>
       ) : (
-        <h2>GrahamCard</h2>
+        <h2>Sandbox</h2>
       )}
     </HeaderLeftBase>
   );

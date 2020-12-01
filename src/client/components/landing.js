@@ -3,15 +3,15 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import {Sandbox} from './sandbox';
 
 const LandingBase = styled.div`
   display: flex;
-  justify-content: center;
-  grid-area: main;
+  width: 100%;
 `;
 
 export const Landing = () => (
   <LandingBase>
-    <h1>This is my landing page!</h1>
+    <Sandbox />
   </LandingBase>
 );
