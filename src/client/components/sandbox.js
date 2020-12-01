@@ -1,7 +1,7 @@
 'use strict';
 
 import React from "react";
-import {useState} from "react";
+import { useState } from "react";
 import {
   LiveProvider,
   LiveEditor,
@@ -34,26 +34,26 @@ function Greet() {
 export const Sandbox = () => {
   const [code, changeCode] = useState(init_code);
 
-  return(<SandboxDiv>
+  return (<SandboxDiv>
     <SubDiv>
-    <b>Edit your code here:</b>
-    <AceEditor
-    mode="javascript"
-    theme="github"
-    name="UNIQUE_ID_OF_DIV"
-    onChange={(newValue) => {changeCode(newValue);}}
-    defaultValue={init_code}
-    style={{width: 500}}
-  />
-  </SubDiv>
-  <SubDiv>
-  <b>Code preview and live rendering:</b>
-  <LiveProvider code={code} style={{padding: 10, display:"flex", flexDirection: "row"}}>
-  <LiveEditor style={{fontSize:14, backgroundColor:"black", padding: 30, width: 400}} />
-  <LiveError />
-  <LivePreview style={{padding: 30}}/>
-  </LiveProvider>
-  </SubDiv>
+      <b>Edit your code here:</b>
+      <AceEditor
+        mode="javascript"
+        theme="github"
+        name="UNIQUE_ID_OF_DIV"
+        onChange={(newValue) => { changeCode(newValue); }}
+        defaultValue={init_code}
+        style={{ width: 500 }}
+      />
+    </SubDiv>
+    <SubDiv>
+      <b>Code preview and live rendering:</b>
+      <LiveProvider code={code} style={{ padding: 10, display: "flex", flexDirection: "row" }}>
+        <LiveEditor style={{ fontSize: 14, backgroundColor: "black", padding: 30, width: 400 }} />
+        <LiveError />
+        <LivePreview style={{ padding: 30 }} />
+      </LiveProvider>
+    </SubDiv>
   </SandboxDiv>
   )
 }

@@ -1,4 +1,3 @@
-/* Copyright G. Hemingway, 2020 - All rights reserved */
 "use strict";
 
 let Joi = require("@hapi/joi");

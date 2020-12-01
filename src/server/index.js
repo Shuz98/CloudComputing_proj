@@ -1,4 +1,3 @@
-/* Copyright G. Hemingway, 2020 - All rights reserved */
 "use strict";
 
 const path = require("path");
@@ -30,7 +29,7 @@ const setupServer = async () => {
   // Setup pipeline session support
   app.store = session({
     name: "session",
-    secret: "grahamcardrules",
+    secret: "cloudcomputing",
     resave: false,
     saveUninitialized: false,
     cookie: {
