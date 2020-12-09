@@ -24,7 +24,7 @@ let User = new Schema({
   city: { type: String, default: "" },
   hash: { type: String, required: true },
   salt: { type: String, required: true },
-  games: [{ type: Schema.Types.ObjectId, ref: "Game" }]
+  assets: [{ type: Schema.Types.ObjectId, ref: "Components" }]
 });
 
 User.path("username").validate(function(value) {

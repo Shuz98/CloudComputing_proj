@@ -63,6 +63,7 @@ module.exports = app => {
         primary_email: data.primary_email
       });
     } catch (err) {
+      console.log(err);
       // Error if username is already in use
       if (err.code === 11000) {
         if (err.message.indexOf("username_1") !== -1)

@@ -10,6 +10,14 @@ import {
 } from 'react-live'
 import AceEditor from "react-ace";
 import styled from 'styled-components';
+import {
+  ErrorMessage,
+  FormBase,
+  FormInput,
+  FormLabel,
+  FormButton,
+  ModalNotify
+} from './shared';
 
 require("ace-builds/webpack-resolver");
 
@@ -34,6 +42,24 @@ function Greet() {
 export const Sandbox = () => {
   const [code, changeCode] = useState(init_code);
 
+  const onSubmit = async ev => {
+    ev.preventDefault();
+    // Only proceed if there are no errors
+    if (error !== '') return;
+    const res = await fetch('/v1/asset', {
+      method: 'POST',
+      body: JSON.stringify(code),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      console.log(err);
+    }
+  };
+
   return (<SandboxDiv>
     <SubDiv>
       <b>Edit your code here:</b>
@@ -45,6 +71,9 @@ export const Sandbox = () => {
         defaultValue={init_code}
         style={{ width: 500 }}
       />
+      <FormButton id="submitBtn" onClick={onSubmit}>
+        Save
+        </FormButton>
     </SubDiv>
     <SubDiv>
       <b>Code preview and live rendering:</b>

@@ -42,26 +42,25 @@ const setupServer = async () => {
   app.use(bodyParser.json());
 
   // Connect to MongoDB
-  // try {
-  //   // Dont want to see MongooseJS deprecation warnings
-  //   mongoose.set('useNewUrlParser', true);
-  //   mongoose.set('useFindAndModify', false);
-  //   mongoose.set('useCreateIndex', true);
-  //   mongoose.set('useUnifiedTopology', true );
-  //   // Connect to the DB server
-  //   await mongoose.connect(conf.mongodb);
-  //   console.log(`MongoDB connected: ${conf.mongodb}`);
-  // } catch (err) {
-  //   console.log(err);
-  //   process.exit(-1);
-  // }
+  try {
+    // Dont want to see MongooseJS deprecation warnings
+    mongoose.set('useNewUrlParser', true);
+    mongoose.set('useFindAndModify', false);
+    mongoose.set('useCreateIndex', true);
+    mongoose.set('useUnifiedTopology', true );
+    // Connect to the DB server
+    await mongoose.connect(conf.mongodb);
+    console.log(`MongoDB connected: ${conf.mongodb}`);
+  } catch (err) {
+    console.log(err);
+    process.exit(-1);
+  }
 
   // Import our Data Models
-  // app.models = {
-  //   Game: require("./models/game"),
-  //   Move: require("./models/move"),
-  //   User: require("./models/user")
-  // };
+  app.models = {
+    User: require("./models/user"),
+    Asset: require("./models/asset")
+  };
 
   // Import our routes
   require("./api")(app);
@@ -88,7 +87,7 @@ const setupServer = async () => {
 
   // Run the server itself
   let server = app.listen(port, () => {
-      console.log(`Assignment 5 ${env} listening on: ${server.address().port}`);
+      console.log(`Project ${env} listening on: ${server.address().port}`);
     });
 
 };

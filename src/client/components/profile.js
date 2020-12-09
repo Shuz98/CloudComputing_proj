@@ -56,6 +56,7 @@ const ProfileBlock = props => {
           <ShortP>{props.city}</ShortP>
           <ShortP>{props.primary_email}</ShortP>
         </InfoData>
+        <Link to="/">Create new asset</Link>
       </InfoBlock>
     </ProfileBlockBase>
   );
@@ -86,6 +87,43 @@ const ProfileBase = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
+const AssetTable = styled.table`
+  width: 100%;
+  text-align: center;
+  @media (max-width: 499px) {
+    & > tbody > tr > td:nth-of-type(2),
+    & > thead > tr > th:nth-of-type(2) {
+      display: none;
+    }
+  }
+`;
+
+// const AssetList = ({ assets}) => {
+//   // Build array of assets
+//   const date = new Date(assets.start);
+//   const url = `/asset/${asset.id}`;
+//   let assetList = assets.map((asset, index) => (
+//     <tr key={index}>
+//       <td>
+//         <Link to={url}>Link to asset</Link>
+//       </td>
+//       <td>{date.toLocaleString()}</td>
+//     </tr>
+//   ));
+//   return (
+//     <Fragment>
+//       <AssetTable>
+//         <thead>
+//           <tr>
+//             <th>link</th>
+//             <th>Start Date</th>
+//           </tr>
+//         </thead>
+//         <tbody>{assetList}</tbody>
+//       </AssetTable>
+//     </Fragment>
+//   );
+// };
 
 export const Profile = props => {
   let [state, setState] = useState({
@@ -94,7 +132,7 @@ export const Profile = props => {
     last_name: '',
     primary_email: '',
     city: '',
-    games: [],
+    assets: [],
     error: ''
   });
 
@@ -120,6 +158,9 @@ export const Profile = props => {
         <ErrorMessage msg={state.error} hide={true} />
         <ProfileBlock {...state} />
       </ProfileBase>
+      {/* <AssetList
+          assets={state.assets}
+        /> */}
     </Fragment>
   );
 };
